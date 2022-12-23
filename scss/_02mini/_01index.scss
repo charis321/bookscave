@@ -1,0 +1,14 @@
+section {
+    width: $WIDTH * 10%;
+    height: $WIDTH * 10%;
+    background-color: #bedfff;
+}
+footer ul { 
+    > li {
+        color: brown;
+        list-style-type: none;
+        text-align: center;
+        //文字尺寸預設: 16px = 1em = 1rem
+        font-size: 1rem * 0.8;
+    }
+}
