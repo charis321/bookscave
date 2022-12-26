@@ -30,11 +30,11 @@ body {
     list-style: none;
   }
   section main {
-    height: 65%;
+    height: 68%;
     background-color: rgb(195, 255, 255);
   }
   section footer {
-    height: 5%;
+    height: 7%;
   }
   section footer > li {
     color: brown;

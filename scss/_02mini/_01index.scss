@@ -24,13 +24,13 @@ section {
 
     main {
         //height: 100% - $H * 4;
-        @include my_MH(0.5%, 5 , 5%);
+        @include my_MH(0.5%, 5 , 2%);
         background-color: rgb(195, 255, 255);
     }
 
     footer { 
         //height: $H ;
-        @include my_FH(0.5%, 5%);
+        @include my_FH(0.5%, 2%);
         
 
         > li {

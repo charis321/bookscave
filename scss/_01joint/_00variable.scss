@@ -8,7 +8,7 @@ $W10: 10;
     height: $W10 * $pre * $multi ;
 }
 @mixin my_FH($pre , $f){
-    height:  $W10 * $pre ;
+    height:  $W10 * $pre + $f;
 }
 @mixin my_MH($pre, $multi , $f){
     height: 100% -  $W10 * $pre * ($multi + 1) -  $f;
