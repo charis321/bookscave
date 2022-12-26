@@ -1,14 +1,53 @@
 section {
-    width: $WIDTH * 10%;
-    height: $WIDTH * 10%;
+    width: $W10 * 10%;
+    height: $W10 * 10%;
     background-color: #bedfff;
-}
-footer ul { 
-    > li {
-        color: brown;
-        list-style-type: none;
-        text-align: center;
-        //文字尺寸預設: 16px = 1em = 1rem
-        font-size: 1rem * 0.8;
+
+
+
+
+    //區域變數
+    //$H: $W10 * 1%; //高度基準值
+    
+
+    header {
+        //height: $H * 3 ;
+        @include my_HH(0.5%, 5);
+        background-color: #a8d3ff;
+
+        .menu{
+            display: flex;
+            flex-direction: row;
+            list-style: none; 
+        }
+    }
+
+    main {
+        //height: 100% - $H * 4;
+        @include my_MH(0.5%, 5 , 5%);
+        background-color: rgb(195, 255, 255);
+    }
+
+    footer { 
+        //height: $H ;
+        @include my_FH(0.5%, 5%);
+        
+
+        > li {
+            color: brown;
+            list-style-type: none;
+            text-align: center;
+            //文字尺寸預設: 16px = 1em = 1rem
+            background-color: #bedfff;
+            font-size: 1rem * 0.85;   
+
+            &.mt {
+                box-sizing: border-box; 
+                padding-top: 4px; 
+            
+            }
+        }     
     }
 }
+
+

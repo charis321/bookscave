@@ -1,3 +1,15 @@
 //設定變數
 //寬度的基準
-$WIDTH: 10;
+$W10: 10;
+
+
+
+@mixin my_HH($pre, $multi){
+    height: $W10 * $pre * $multi ;
+}
+@mixin my_FH($pre , $f){
+    height:  $W10 * $pre ;
+}
+@mixin my_MH($pre, $multi , $f){
+    height: 100% -  $W10 * $pre * ($multi + 1) -  $f;
+}
