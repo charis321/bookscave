@@ -1,8 +1,9 @@
-@import '_01joint/_01joint.scss';
+@import '_01joint/_01joint.scss'; 
+
 // 建立 RWD斷點: @media 
 // 超小裝置 mini: <=576px (max-width: 576px)
 @media screen and (max-width: 576px) {
-    @import '_02mini/_01index.scss';
+    @import '_02mini/_01index.scss' ;
 }
 
 // 小裝置 small: >576px (min-width: 576px)

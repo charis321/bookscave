@@ -1,4 +1,4 @@
-@import '_00variable.scss';
+@use '_00variable.scss' as Var;
 
 
 // 清除預設的間距與邊界 
@@ -11,7 +11,7 @@
 // 文字單位: 絕對: px , 相對: em(子物件與父物件連動) rem(不受父物件影響)
 html,
 body{
-    width: $W10 * 10%;
+    width: Var.$W10 * 10%;
     height: 100%;
 }
 

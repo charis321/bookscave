@@ -1,6 +1,9 @@
-section {
-    width: $W10 * 10%;
-    height: $W10 * 10%;
+ @use '../_01joint/_00variable.scss' as Var;
+ @use '../_01joint/02mixin.scss' as Mixin;
+ 
+ section {
+    width: Var.$W10 * 10%;
+    height: Var.$W10 * 10%;
     background-color: #bedfff;
 
 
@@ -8,13 +11,30 @@ section {
 
     //區域變數
     //$H: $W10 * 1%; //高度基準值
-    
+
 
     header {
         //height: $H * 3 ;
-        @include my_HH(0.5%, 5);
+        @include Mixin.my_HH(0.5%, 5);
+        @include Mixin.col_Two(1%);
         background-color: #a8d3ff;
-
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        
+        >li {
+            list-style: none; 
+            padding-top: 10px;
+            font-size: 1.5rem;
+            transition: 0.1s linear;
+            &:active {
+                transform: rotateY(180deg);
+            }
+            &:hover {
+                color: #FFF;
+            }
+        }
         .menu{
             display: flex;
             flex-direction: row;
@@ -24,13 +44,13 @@ section {
 
     main {
         //height: 100% - $H * 4;
-        @include my_MH(0.5%, 5 , 2%);
+        @include Mixin.my_MH(0.5%, 5 , 2%);
         background-color: rgb(195, 255, 255);
     }
 
     footer { 
         //height: $H ;
-        @include my_FH(0.5%, 2%);
+        @include Mixin.my_FH(0.5%, 2%);
         
 
         > li {
@@ -39,15 +59,21 @@ section {
             text-align: center;
             //文字尺寸預設: 16px = 1em = 1rem
             background-color: #bedfff;
-            font-size: 1rem * 0.85;   
+            font-size: 1rem * 0.7;   
 
             &.mt {
                 box-sizing: border-box; 
-                padding-top: 4px; 
+                padding-top: 6px; 
             
             }
         }     
     }
+}
+.row {
+    //彈性布局
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
