@@ -37,29 +37,18 @@ body {
     width: 90%;
     text-align: center;
   }
-  section header > li {
+  section header li {
     list-style: none;
+  }
+  section header > .menu {
     padding-top: 10px;
-    font-size: 1.5rem;
+    text-indent: -2000px;
+    background-image: url("../../images/icons/list.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     -webkit-transition: 0.1s linear;
     transition: 0.1s linear;
-  }
-  section header > li:active {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  section header > li:hover {
-    color: #FFF;
-  }
-  section header .menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    list-style: none;
   }
   section main {
     height: 68%;
