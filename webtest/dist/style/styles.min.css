@@ -1,0 +1,1 @@
+section#index{font-size:20rem}@media screen and (max-width: 576px){section#index>div{color:red;background-color:#ff0}}@media screen and (min-width: 576px){section#index>div{color:#ff0;background-color:blue}}@media screen and (min-width: 768px){section#index>div{color:blue;background-color:#90ee90}}

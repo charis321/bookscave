@@ -1,0 +1,17 @@
+@use '_00variable.scss' as Var;
+
+
+// 清除預設的間距與邊界 
+// 通用元素【*】 (最高階的元素，包含全部的元素) 
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+// 絕對長度: px , 相對長度: % vh vw , vh/vw 跟 % 不要混用
+// 文字單位: 絕對: px , 相對: em(子物件與父物件連動) rem(不受父物件影響)
+html,
+body{
+    width: Var.$W10 * 10%;
+    height: 100%;
+}
+

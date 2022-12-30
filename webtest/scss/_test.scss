@@ -1,0 +1,27 @@
+@use '_01joint/00variable' as Var;
+section#index {
+    font-size: 1rem * 20;
+    @media screen and (max-width: Var.$Width-small) {
+        > div {
+            color: red;
+            background-color: yellow;
+        }
+        
+    }
+    @media screen and (min-width:  Var.$Width-small) {
+        > div {
+            color: yellow;
+            background-color: blue;
+        }
+        
+    }
+    @media screen and (min-width: Var.$Width-tablet) {
+        > div {
+            color: blue;
+            background-color: lightgreen;
+        }
+        
+    }
+
+
+}
