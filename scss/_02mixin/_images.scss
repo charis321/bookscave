@@ -1,0 +1,7 @@
+@mixin image($folder, $name, $size, $pos: center){
+    background-image: url('../../images/#{$folder}/#{$name}');
+    background-repeat: no-repeat;
+    background-position: $pos;
+    background-size: $size;
+    text-indent: -9999px;
+}
