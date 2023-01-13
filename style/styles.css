@@ -119,17 +119,19 @@ nav > .menu {
 
 @media screen and (min-width: 0px) {
   header > h1 {
-    width: 90%;
-    background-color: red;
+    width: 85%;
   }
   header > .menu {
-    width: 10%;
+    width: 15%;
+  }
+  header > .menu > nav {
+    position: absolute;
+    left: 0;
   }
 }
 @media screen and (min-width: 567px) {
   header > h1 {
     width: 92%;
-    background-color: orange;
   }
   header > .menu {
     width: 8%;
@@ -138,25 +140,50 @@ nav > .menu {
 @media screen and (min-width: 768px) {
   header > h1 {
     width: 92%;
-    background-color: yellow;
   }
   header > .menu {
     width: 8%;
   }
 }
 @media screen and (min-width: 992px) {
+  * {
+    margin: 0;
+  }
+  section {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  header {
+    margin: 0;
+    width: 40%;
+    height: 100%;
+  }
   header > h1 {
     width: 92%;
-    background-color: green;
   }
   header > .menu {
-    width: 8%;
+    display: none;
+  }
+  main, #main {
+    margin: 0;
+    width: 60%;
+    height: 90%;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 10%;
   }
 }
 @media screen and (min-width: 1200px) {
   header > h1 {
     width: 92%;
-    background-color: blue;
   }
   header > .menu {
     width: 8%;

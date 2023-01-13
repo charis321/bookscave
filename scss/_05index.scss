@@ -117,21 +117,23 @@ nav > .menu{
 @include Media.RWD(xs) {
 header {
     > h1 {
-        width: Var.$W10 * 9%;
-        background-color: red;
+        width: Var.$W10 * 8.5%;
+        //background-color: red;
     }
     > .menu {
-        width: Var.$W10 * 1%;
-        
+        width: Var.$W10 * 1.5%;
+        > nav {
+            position: absolute;
+            left: 0;
+        }
     }
-
 }
 }
 @include Media.RWD(sm) {
 header {
     > h1 {
         width: Var.$W10 * 9.2%;
-        background-color: orange;
+        //background-color: orange;
     }
     > .menu {
         width: Var.$W10 * 0.8%;
@@ -143,7 +145,7 @@ header {
 header {
     > h1 {
         width: Var.$W10 * 9.2%;
-        background-color: yellow;
+        //background-color: yellow;
     }
     > .menu {
         width: Var.$W10 * 0.8%;
@@ -152,23 +154,51 @@ header {
 
 }
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 @include Media.RWD(lg) {
-header {
-    > h1 {
-        width: Var.$W10 * 9.2%;
-        background-color: green;
+    * {
+        margin: 0;
     }
-    > .menu {
-        width: Var.$W10 * 0.8%;
+    section {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    header {
+        margin: 0;
+        width: Var.$W10 * 4%;
+        height: Var.$W10 * 10%;
+
+        > h1 {
+            width: Var.$W10 * 9.2%;
+            
+        }
+        > .menu {
+            display: none;
+        }
+    }
+    main, #main{
+        margin: 0;
+        width: Var.$W10 * 6%;
+        height: Var.$W10 * 9%;
     }
 
-}
+    footer {
+        position: absolute;
+        bottom: 0;
+        right:0;
+        width: Var.$W10 * 6%;
+        height: Var.$W10 * 1%;
+        
+    }
 }
 @include Media.RWD(xl) {
+
 header {
+
     > h1 {
         width: Var.$W10 * 9.2%;
-        background-color: blue;
+        //background-color: blue;
     }
     > .menu {
         width: Var.$W10 * 0.8%;
