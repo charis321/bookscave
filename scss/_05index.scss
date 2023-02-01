@@ -4,7 +4,7 @@
  section {
     width: Var.$W10 * 10%;
     height: Var.$W10 * 10%;
-    background-color: #bedfff;
+    background-color: Var.$bg_color;
 }
 
 header {
@@ -14,16 +14,19 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
+
     li {
         list-style: none;
     }
 
     > h1 {
+        
         width: Var.$W10 * 9%;
         //background-color: #000;
         > li{
-            list-style: none;
+            //list-style: none;
             //background-color: #fff;
+            
             font-size: 1rem * 2;
             //margin-top: calc(1rem * 2 / 4);
             border-top: 10px solid rgba(0, 0 ,0 ,0);
@@ -32,7 +35,7 @@ header {
             border-right: 10px solid rgba(0, 0 ,0 ,1);
         }         
     }
-    > .menu {
+    > .menu-btn {
         
         width: Var.$W10 * 1%;
         height: 50px;
@@ -57,7 +60,75 @@ header {
             text-align: right;
             font-size: 1rem * 0.8;
         }
-    }        
+    }
+    > nav {
+        width: Var.$W10 * 10%;
+        height: Var.$W10 * 10%;
+        z-index: Var.$Z_99;
+        position: absolute;
+        background-color: #fff;
+        text-align: left;
+
+        display: flex;
+        display: none;
+        justify-content: center;
+        $menuheaderH: Var.$W10 * 12px;
+
+        #menu-header {
+            width: Var.$W10 * 10%;
+            height: $menuheaderH;
+            background-color: Var.$bg_color;
+            box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+            position: fixed;
+
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            font-size: 1.5rem;
+
+            #close {
+                height: Var.$W10 * 3%;
+                display: inline-block;
+                margin-right: 10px;
+                font-size: 2rem;
+                
+            }
+        }
+        #menu-nav {
+            width: Var.$W10 * 8%;
+            
+            
+            margin-top: calc($menuheaderH + 10px);
+            h2 {
+                margin-top: 20px;
+            }
+            .NH {
+                height: 100px;
+            }
+            li {
+                text-indent: 1rem;
+                //margin: 2px 20px;
+                padding: 10px;
+                background-color: #7daddd;
+            }
+        }
+        #menu-icon {
+            width: Var.$W10 * 10%;
+            height: Var.$W10 * 1%;
+            position: fixed;
+            bottom: 0;
+            z-index: Var.$Z_10;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: Var.$bg_color;
+            border-top: 2px solid rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+        }
+    }   
 }
    
 main {
@@ -95,7 +166,7 @@ footer {
 
         > li {
             color: brown;
-            list-style-type: none;
+            //list-style-type: none;
             text-align: center;
             //文字尺寸預設: 16px = 1em = 1rem
             background-color: #bedfff;
@@ -115,31 +186,31 @@ nav > .menu{
 
 // media判斷 
 @include Media.RWD(xs) {
-header {
-    > h1 {
-        width: Var.$W10 * 8.5%;
-        //background-color: red;
-    }
-    > .menu {
-        width: Var.$W10 * 1.5%;
-        > nav {
-            position: absolute;
-            left: 0;
+    header {
+        > h1 {
+            width: Var.$W10 * 8.5%;
+            //background-color: red;
+        }
+        > .menu {
+            width: Var.$W10 * 1.5%;
+            > nav {
+                position: absolute;
+                left: 0;
+            }
         }
     }
 }
-}
 @include Media.RWD(sm) {
-header {
-    > h1 {
-        width: Var.$W10 * 9.2%;
-        //background-color: orange;
-    }
-    > .menu {
-        width: Var.$W10 * 0.8%;
-    }
+    header {
+        > h1 {
+            width: Var.$W10 * 9.2%;
+            //background-color: orange;
+        }
+        > .menu {
+            width: Var.$W10 * 0.8%;
+        }
 
-}
+    }
 }
 @include Media.RWD(md) {
 header {
@@ -161,35 +232,56 @@ header {
     }
     section {
         margin: 0;
-        display: flex;
-        flex-wrap: wrap;
+        //display: flex;
+        //flex-wrap: wrap;
+        &::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
     }
     header {
         margin: 0;
         width: Var.$W10 * 4%;
         height: Var.$W10 * 10%;
-
+        float: left;
         > h1 {
-            width: Var.$W10 * 9.2%;
-            
+            width: Var.$W10 * 10%;
+            height: Var.$W10 * 4%;
+            margin: Var.$W10 * 1%;  
+            background-color: #bedfff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            //border: 5px dashed #000;
+            border-radius: 0 50px 0 50px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+            li {
+              margin: Var.$W10 * 1% ;
+            }
         }
         > .menu {
             display: none;
+        }
+        
+        > .info {
+            height: Var.$W10 * 2%;
         }
     }
     main, #main{
         margin: 0;
         width: Var.$W10 * 6%;
-        height: Var.$W10 * 9%;
+        height: Var.$W10 * 9.2%;
+        float: right;
     }
 
     footer {
-        position: absolute;
-        bottom: 0;
-        right:0;
+        //position: absolute;
+        //bottom: 0;
+        //right:0;
         width: Var.$W10 * 6%;
-        height: Var.$W10 * 1%;
-        
+        height: Var.$W10 * 0.8%;
+        float: left;
     }
 }
 @include Media.RWD(xl) {
