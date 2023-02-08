@@ -1,15 +1,42 @@
  @use '_01variable/_variable' as Var;
  @use '_02mixin/_media' as Media;
  @use '_02mixin/images' as Img;
+ @use '_02mixin/jmixin' as JM;
  section {
     width: Var.$W10 * 10%;
     height: Var.$W10 * 10%;
-    background-color: Var.$bg_color;
+    //background-color: Var.$bg_color;
 }
-
+#banner{
+    ul{
+        width: Var.$W10 * 10%;
+        height: Var.$W10 * 10%;
+        @include JM.BannerDelay();
+    }
+    li{
+        width: Var.$W10 * 10%;
+        height: Var.$W10 * 10%;
+        position: absolute;
+    }
+    .img_1{
+        @include Img.image(photo, 'banner_1.jpg', cover);
+    }
+    .img_2{
+        @include Img.image(photo, 'banner_2.jpg', cover);
+    }
+    .img_3{
+        @include Img.image(photo, 'banner_1.jpg', cover);
+    }
+    .img_4{
+        @include Img.image(photo, 'banner_1.jpg', cover);
+    }
+    .img_5{
+        @include Img.image(photo, 'banner_1.jpg', cover);
+    }
+}
 header {
     //height: $H * 3 ; 父元素不給高;
-    background-color: #a8d3ff;
+    //background-color: rgb(190, 223, 255, 0.8);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,7 +46,7 @@ header {
         list-style: none;
     }
 
-    > h1 {
+    > .logo {
         
         width: Var.$W10 * 9%;
         //background-color: #000;
@@ -110,7 +137,8 @@ header {
                 text-indent: 1rem;
                 //margin: 2px 20px;
                 padding: 10px;
-                background-color: #7daddd;
+                
+                background-color: #b7d4f1;
             }
         }
         #menu-icon {
@@ -134,7 +162,7 @@ header {
 main {
         //height: 100% - $H * 4;
 
-        background-color: rgb(195, 255, 255);
+        //background-color: rgb(195, 255, 255);
         > nav {
             width: Var.$W10 * 10%;
             height: 100%;
@@ -151,33 +179,35 @@ main {
                     background-color: rgba(255,255,255,0.9);
                 }
                 > li {
+                    border: 2px dashed #000 ;
+                    background-color: rgba(255, 255, 255, 0.7);
                     list-style: none;
                     font-size: 1.2rem;
                     font-weight: bolder;
+                    box-shadow: 0 0 20px 10px #fff;
+                    padding: 2px;
                 }
             }
         }
 }
 
 footer { 
-        //height: $H ;
-
+    //background-color: #bedfff;
+    //height: $H ;
+    > li {
+        color: brown;
+        //list-style-type: none;
+        text-align: center;
+        //文字尺寸預設: 16px = 1em = 1rem
         
+        font-size: 1rem * 0.7;   
 
-        > li {
-            color: brown;
-            //list-style-type: none;
-            text-align: center;
-            //文字尺寸預設: 16px = 1em = 1rem
-            background-color: #bedfff;
-            font-size: 1rem * 0.7;   
-
-            &.mt {
-                box-sizing: border-box; 
-                padding-top: 6px; 
-            
-            }
-        }     
+        &.mt {
+            box-sizing: border-box; 
+            padding-top: 6px; 
+        
+        }
+    }     
 }
 
 nav > .menu{
@@ -186,11 +216,18 @@ nav > .menu{
 
 // media判斷 
 @include Media.RWD(xs) {
+    #banner {
+        width: Var.$W10 * 10%;
+        height: Var.$W10 * 10%;
+        position: absolute;
+        z-index: -1;
+    }
+    $footerH: 40px;
+    $headerH: $footerH * 4;
+    
     header {
-        > h1 {
-            width: Var.$W10 * 8.5%;
-            //background-color: red;
-        }
+        background-color: Var.$bg_color;
+        height: $headerH ;
         > .menu {
             width: Var.$W10 * 1.5%;
             > nav {
@@ -198,6 +235,26 @@ nav > .menu{
                 left: 0;
             }
         }
+    }
+    main, #main {
+        width: Var.$W10 * 10%;
+        height: calc(100% - $headerH - $footerH);
+        >nav {
+            
+            display: flex;
+            flex-wrap: wrap;
+            a{
+                width: Var.$W10 * 5%;
+                
+            }
+        }
+    }
+    footer {
+        background-color: Var.$bg_color;
+        width: Var.$W10 * 10%;
+        height: $footerH;
+        position: fixed;
+        bottom: 0;
     }
 }
 @include Media.RWD(sm) {
@@ -232,22 +289,20 @@ header {
     }
     section {
         margin: 0;
-        //display: flex;
-        //flex-wrap: wrap;
-        &::after{
-            content: '';
-            clear: both;
-            display: block;
-        }
+        display: flex;
+        flex-wrap: wrap;
+        
     }
     header {
+        background-color: Var.$bg_color_pc;
         margin: 0;
-        width: Var.$W10 * 4%;
+        width: Var.$W10 * 3.5%;
         height: Var.$W10 * 10%;
         float: left;
-        > h1 {
+        
+        > .logo {
             width: Var.$W10 * 10%;
-            height: Var.$W10 * 4%;
+            height: Var.$W10 * 3%;
             margin: Var.$W10 * 1%;  
             background-color: #bedfff;
             display: flex;
@@ -260,28 +315,32 @@ header {
               margin: Var.$W10 * 1% ;
             }
         }
-        > .menu {
+        > .menu-btn {
             display: none;
         }
         
         > .info {
             height: Var.$W10 * 2%;
+            > li{
+               font-size: 0.8rem; 
+            }
+            
         }
     }
     main, #main{
         margin: 0;
-        width: Var.$W10 * 6%;
-        height: Var.$W10 * 9.2%;
+        width: Var.$W10 * 6.5%;
+        height: Var.$W10 * 9.4%;
         float: right;
     }
 
     footer {
-        //position: absolute;
-        //bottom: 0;
-        //right:0;
-        width: Var.$W10 * 6%;
-        height: Var.$W10 * 0.8%;
-        float: left;
+        background-color: Var.$bg_color_pc;
+        position: absolute;
+        bottom: 0;
+        right:0;
+        width: Var.$W10 * 6.5%;
+        height: Var.$W10 * 0.6%;        
     }
 }
 @include Media.RWD(xl) {

@@ -15,14 +15,127 @@ body a {
   color: #000;
 }
 
+@-webkit-keyframes RoundAN {
+  0% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  20% {
+    opacity: 1;
+    filter: alpha(opacity=80);
+  }
+  40% {
+    opacity: 1;
+    filter: alpha(opacity=60);
+  }
+  60% {
+    opacity: 1;
+    filter: alpha(opacity=40);
+  }
+  80% {
+    opacity: 1;
+    filter: alpha(opacity=20);
+  }
+}
+
+@keyframes RoundAN {
+  0% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  20% {
+    opacity: 1;
+    filter: alpha(opacity=80);
+  }
+  40% {
+    opacity: 1;
+    filter: alpha(opacity=60);
+  }
+  60% {
+    opacity: 1;
+    filter: alpha(opacity=40);
+  }
+  80% {
+    opacity: 1;
+    filter: alpha(opacity=20);
+  }
+}
 section {
   width: 100%;
   height: 100%;
-  background-color: #bedfff;
+}
+
+#banner ul {
+  width: 100%;
+  height: 100%;
+}
+#banner ul li:nth-child(5) {
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+  display: block;
+}
+#banner ul li:nth-child(4) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  display: block;
+}
+#banner ul li:nth-child(3) {
+  -webkit-animation-delay: 15s;
+          animation-delay: 15s;
+  display: block;
+}
+#banner ul li:nth-child(2) {
+  -webkit-animation-delay: 20s;
+          animation-delay: 20s;
+  display: block;
+}
+#banner ul li:nth-child(1) {
+  -webkit-animation-delay: 25s;
+          animation-delay: 25s;
+  display: block;
+}
+#banner li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#banner .img_1 {
+  background-image: url("../../images/photo/banner_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
+}
+#banner .img_2 {
+  background-image: url("../../images/photo/banner_2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
+}
+#banner .img_3 {
+  background-image: url("../../images/photo/banner_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
+}
+#banner .img_4 {
+  background-image: url("../../images/photo/banner_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
+}
+#banner .img_5 {
+  background-image: url("../../images/photo/banner_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
 }
 
 header {
-  background-color: #a8d3ff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,10 +150,10 @@ header {
 header li {
   list-style: none;
 }
-header > h1 {
+header > .logo {
   width: 90%;
 }
-header > h1 > li {
+header > .logo > li {
   font-size: 2rem;
   border-top: 10px solid rgba(0, 0, 0, 0);
   border-bottom: 5px dashed #000;
@@ -87,7 +200,7 @@ header > nav {
 header > nav #menu-header {
   width: 100%;
   height: 120px;
-  background-color: #bedfff;
+  background-color: rgb(190, 223, 255);
   -webkit-box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
           box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -123,7 +236,7 @@ header > nav #menu-nav .NH {
 header > nav #menu-nav li {
   text-indent: 1rem;
   padding: 10px;
-  background-color: #7daddd;
+  background-color: #b7d4f1;
 }
 header > nav #menu-icon {
   width: 100%;
@@ -144,14 +257,11 @@ header > nav #menu-icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #bedfff;
+  background-color: rgb(190, 223, 255);
   border-top: 2px solid rgba(0, 0, 0, 0.2);
   font-size: 1rem;
 }
 
-main {
-  background-color: rgb(195, 255, 255);
-}
 main > nav {
   width: 100%;
   height: 100%;
@@ -179,15 +289,19 @@ main > nav a:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
 main > nav a > li {
+  border: 2px dashed #000;
+  background-color: rgba(255, 255, 255, 0.7);
   list-style: none;
   font-size: 1.2rem;
   font-weight: bolder;
+  -webkit-box-shadow: 0 0 20px 10px #fff;
+          box-shadow: 0 0 20px 10px #fff;
+  padding: 2px;
 }
 
 footer > li {
   color: brown;
   text-align: center;
-  background-color: #bedfff;
   font-size: 0.7rem;
 }
 footer > li.mt {
@@ -201,8 +315,15 @@ nav > .menu {
 }
 
 @media screen and (min-width: 0px) {
-  header > h1 {
-    width: 85%;
+  #banner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+  header {
+    background-color: rgb(190, 223, 255);
+    height: 160px;
   }
   header > .menu {
     width: 15%;
@@ -210,6 +331,27 @@ nav > .menu {
   header > .menu > nav {
     position: absolute;
     left: 0;
+  }
+  main, #main {
+    width: 100%;
+    height: calc(100% - 160px - 40px);
+  }
+  main > nav, #main > nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main > nav a, #main > nav a {
+    width: 50%;
+  }
+  footer {
+    background-color: rgb(190, 223, 255);
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
   }
 }
 @media screen and (min-width: 567px) {
@@ -234,21 +376,22 @@ nav > .menu {
   }
   section {
     margin: 0;
-  }
-  section::after {
-    content: "";
-    clear: both;
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   header {
+    background-color: rgba(190, 223, 255, 0.8);
     margin: 0;
-    width: 40%;
+    width: 35%;
     height: 100%;
     float: left;
   }
-  header > h1 {
+  header > .logo {
     width: 100%;
-    height: 40%;
+    height: 30%;
     margin: 10%;
     background-color: #bedfff;
     display: -webkit-box;
@@ -265,25 +408,31 @@ nav > .menu {
     -webkit-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
   }
-  header > h1 li {
+  header > .logo li {
     margin: 10%;
   }
-  header > .menu {
+  header > .menu-btn {
     display: none;
   }
   header > .info {
     height: 20%;
   }
+  header > .info > li {
+    font-size: 0.8rem;
+  }
   main, #main {
     margin: 0;
-    width: 60%;
-    height: 92%;
+    width: 65%;
+    height: 94%;
     float: right;
   }
   footer {
-    width: 60%;
-    height: 8%;
-    float: left;
+    background-color: rgba(190, 223, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 65%;
+    height: 6%;
   }
 }
 @media screen and (min-width: 1200px) {
